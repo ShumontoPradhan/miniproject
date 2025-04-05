@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeHer - Bilaspur Women Safety</title>
+    <!-- Proper CSS Link -->
+    <link rel="stylesheet" href="./styles.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i> SafeHer 
+            </div>
+            <nav>
+                <a href="#home"><i class="fas fa-home"></i> Home</a>
+                <a href="#dashboard"><i class="fas fa-map-marked-alt"></i> Dashboard</a>
+                <a href="#report"><i class="fas fa-exclamation-triangle"></i> Report</a>
+                <a href="#resources"><i class="fas fa-hands-helping"></i> Resources</a>
+                <div class="auth-buttons">
+                    <button id="login-btn"><i class="fas fa-sign-in-alt"></i> Login</button>
+                    <button id="signup-btn" class="btn-primary"><i class="fas fa-user-plus"></i> Sign Up</button>
+                </div>
+                <button class="emergency-btn"><i class="fas fa-bell"></i> SOS</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <h1>Women Safety Platform</h1>
+                <p>Empowering women through data-driven safety solutions in Chhattisgarh</p>
+                <div class="cta-buttons">
+                    <a href="#report" class="btn btn-primary"><i class="fas fa-exclamation-circle"></i> Report Incident</a>
+                    <a href="#dashboard" class="btn btn-secondary"><i class="fas fa-map"></i> View Safety Map</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="dashboard">
+            <div class="container">
+                <h2><i class="fas fa-chart-line"></i> Bilaspur Safety Dashboard</h2>
+                <div class="dashboard-grid">
+                    <div class="map-container">
+                        <div id="safety-map"></div>
+                    </div>
+                    <div class="stats-container">
+                        <div class="stats-card">
+                            <h3><i class="fas fa-bell"></i> Incidents Today</h3>
+                            <div class="stat-value" id="today-incidents">18</div>
+                        </div>
+                        <div class="stats-card">
+                            <h3><i class="fas fa-exclamation-triangle"></i> High Risk Areas</h3>
+                            <div class="stat-value" id="high-risk">7</div>
+                        </div>
+                        <div class="stats-card">
+                            <h3><i class="fas fa-shield-alt"></i> Safety Index</h3>
+                            <div class="stat-value" id="safety-index">68%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Report Section -->
+        <section id="report" class="report">
+            <div class="container">
+                <h2><i class="fas fa-edit"></i> Report an Incident</h2>
+                <form id="incident-form">
+                    <div class="form-group">
+                        <label for="incident-type"><i class="fas fa-tag"></i> Incident Type</label>
+                        <select id="incident-type" required>
+                            <option value="">Select type</option>
+                            <option value="harassment">Harassment</option>
+                            <option value="assault">Assault</option>
+                            <option value="stalking">Stalking</option>
+                            <option value="domestic-violence">Domestic Violence</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="incident-location"><i class="fas fa-map-marker-alt"></i> Location</label>
+                        <input type="text" id="incident-location" placeholder="Enter location in Bilaspur" required>
+                        <small>Click on map to select location</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="incident-description"><i class="fas fa-align-left"></i> Description</label>
+                        <textarea id="incident-description" rows="4" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label><i class="fas fa-camera"></i> Evidence (Optional)</label>
+                        <div class="upload-box" id="upload-box">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <span>Click to upload photos/videos</span>
+                            <input type="file" id="evidence-upload" multiple accept="image/*,video/*">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="anonymous-report">
+                        <label for="anonymous-report">Report anonymously</label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Submit Report</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section id="resources" class="resources">
+            <div class="container">
+                <h2><i class="fas fa-info-circle"></i> Safety Resources</h2>
+                <div class="resource-cards">
+                    <div class="resource-card emergency-contacts">
+                        <h3><i class="fas fa-phone-alt"></i> Emergency Contacts</h3>
+                        <ul class="contact-list" id="emergency-contacts">
+                            <!-- Filled by JS -->
+                        </ul>
+                    </div>
+                    <div class="resource-card safety-tips">
+                        <h3><i class="fas fa-lightbulb"></i> Safety Tips</h3>
+                        <div class="tips-container" id="safety-tips">
+                            <!-- Filled by JS -->
+                        </div>
+                    </div>
+                    <div class="resource-card shelters-map">
+                        <h3><i class="fas fa-map-marked-alt"></i> Nearby Help Centers</h3>
+                        <div id="shelters-map"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modals -->
+    <div id="signup-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2><i class="fas fa-user-plus"></i> Create Account</h2>
+            <form id="signup-form">
+                <div class="form-group">
+                    <label for="signup-name"><i class="fas fa-user"></i> Full Name</label>
+                    <input type="text" id="signup-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-phone"><i class="fas fa-phone"></i> Mobile</label>
+                    <input type="tel" id="signup-phone" pattern="[0-9]{10}" placeholder="9876543210" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-email"><i class="fas fa-envelope"></i> Email</label>
+                    <input type="email" id="signup-email" placeholder="optional">
+                </div>
+                <div class="form-group">
+                    <label for="signup-password"><i class="fas fa-lock"></i> Password</label>
+                    <input type="password" id="signup-password" minlength="8" required>
+                </div>
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="terms-agree" required>
+                    <label for="terms-agree">I agree to the Terms of Service</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2><i class="fas fa-sign-in-alt"></i> Login</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-phone"><i class="fas fa-phone"></i> Mobile</label>
+                    <input type="tel" id="login-phone" pattern="[0-9]{10}" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password"><i class="fas fa-lock"></i> Password</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="remember-me">
+                    <label for="remember-me">Remember me</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+                <p class="form-footer">New user? <a href="#" id="show-signup">Create account</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- our Team  -->
+     <!-- Team Section -->
+<section id="team" class="team">
+    <div class="container">
+        <h2><i class="fas fa-users"></i> Know about Developers!</h2>
+        <div class="team-members">
+            <!-- Developer 1 -->
+            <div class="team-card">
+                <div class="team-img">
+                    <img src="images/sami.jpg" alt="Developer Name">
+                </div>
+                <h3>Sami Banjare</h3>
+                <div class="team-contact">
+                    <a href="mailto:sami@safeherbilaspur.com"><i class="fas fa-envelope"></i> Email</a>
+                </div>
+            </div>
+            
+            <!-- Developer 2 -->
+            <div class="team-card">
+                <div class="team-img">
+                    <img src="images/duru.jpg" alt="Developer Name">
+                </div>
+                <h3>Duruwashini Netam</h3>
+                <div class="team-contact">
+                    <a href="mailto:duruwashini@safeherbilaspur.com"><i class="fas fa-envelope"></i> Email</a>
+                </div>
+            </div>
+            
+            <!-- Developer 3 -->
+            <div class="team-card">
+                <div class="team-img">
+                    <img src="images/shum.jpg" alt="Developer Name">
+                </div>
+                <h3>Shumonto Pradhan</h3>
+                <div class="team-contact">
+                    <a href="mailto:shumonto@safeherbilaspur.com"><i class="fas fa-envelope"></i> Email</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 SafeHer Bilaspur. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#"><i class="fas fa-lock"></i> Privacy</a>
+                <a href="#"><i class="fas fa-file-alt"></i> Terms</a>
+                <a href="tel:100"><i class="fas fa-phone-alt"></i> Emergency</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Links -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <!-- Proper JS Link -->
+    <script src="./script.js"></script>
+</body>
+</html>
