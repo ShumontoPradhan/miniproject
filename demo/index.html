@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women Safety Platform - Chhattisgarh</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #6f42c1;
+        }
+        
+        .testimonial-card {
+            border-left: 4px solid #6f42c1;
+        }
+        
+        .safety-tips {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .stats-card {
+            transition: transform 0.3s;
+        }
+        
+        .stats-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .map-container {
+            height: 400px;
+            background-color: #eee;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        footer {
+            background-color: #343a40;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section id="home" class="hero bg-light text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-3">Women Safety Platform</h1>
+            <p class="lead fw-bold mb-4">Empowering women through data-driven safety solutions in Chhattisgarh</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <a href="/report" class="btn btn-primary d-flex align-items-center gap-2 me-4 mb-2">
+                    <i class="fas fa-exclamation-circle"></i>
+                    Report Incident
+                </a>
+                <a href="/dashboard" class="btn btn-secondary d-flex align-items-center gap-2 mb-2">
+                    <i class="fas fa-map"></i>
+                    View Safety Map
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Our Safety Features</h2>
+                <p class="text-muted">Comprehensive tools designed for your protection</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="text-center p-4">
+                        <div class="feature-icon">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                        <h3>Emergency Alerts</h3>
+                        <p>Instant notifications to authorities and trusted contacts with your location when you're in danger.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="text-center p-4">
+                        <div class="feature-icon">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <h3>Safety Zones</h3>
+                        <p>Real-time mapping of safe areas and high-risk zones across Chhattisgarh based on community reports.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="text-center p-4">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Community Network</h3>
+                        <p>Connect with other women in your area to share safety tips and travel together.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Safety in Numbers</h2>
+                <p class="text-muted">Understanding the landscape of women's safety in our state</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="stats-card bg-white p-4 text-center shadow-sm rounded">
+                        <h3 class="text-primary">1,200+</h3>
+                        <p>Incidents reported monthly</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-3">
+                    <div class="stats-card bg-white p-4 text-center shadow-sm rounded">
+                        <h3 class="text-primary">85%</h3>
+                        <p>Response rate by authorities</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-3">
+                    <div class="stats-card bg-white p-4 text-center shadow-sm rounded">
+                        <h3 class="text-primary">42</h3>
+                        <p>Safe zones identified</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-3">
+                    <div class="stats-card bg-white p-4 text-center shadow-sm rounded">
+                        <h3 class="text-primary">10,000+</h3>
+                        <p>Active users protected</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Safety Map Preview -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h2 class="fw-bold mb-4">Interactive Safety Map</h2>
+                    <p>Our real-time safety map shows reported incidents, safe routes, and nearby help centers across Chhattisgarh. The heatmap visualization helps you identify areas to avoid based on recent activity.</p>
+                    <p>Community reports are verified and categorized to provide accurate safety information when you need it most.</p>
+                    <a href="/dashboard" class="btn btn-primary mt-3">Explore the Map</a>
+                </div>
+                <div class="col-md-6">
+                    <div class="map-container p-3 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Safety Map Preview" class="img-fluid rounded">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Safety Tips -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Safety Tips & Resources</h2>
+                <p class="text-muted">Knowledge is power - stay informed and prepared</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="safety-tips p-4 h-100">
+                        <h4><i class="fas fa-walking me-2"></i> Travel Safety</h4>
+                        <ul class="mt-3">
+                            <li class="mb-2">Share your live location with trusted contacts</li>
+                            <li class="mb-2">Avoid isolated routes after dark</li>
+                            <li class="mb-2">Use verified public transportation</li>
+                            <li>Trust your instincts - if something feels wrong, it probably is</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="safety-tips p-4 h-100">
+                        <h4><i class="fas fa-mobile-alt me-2"></i> Digital Safety</h4>
+                        <ul class="mt-3">
+                            <li class="mb-2">Keep emergency contacts easily accessible</li>
+                            <li class="mb-2">Use our panic button feature</li>
+                            <li class="mb-2">Be cautious sharing location on social media</li>
+                            <li>Regularly check our safety alerts</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="safety-tips p-4 h-100">
+                        <h4><i class="fas fa-first-aid me-2"></i> Emergency Preparedness</h4>
+                        <ul class="mt-3">
+                            <li class="mb-2">Memorize important phone numbers</li>
+                            <li class="mb-2">Know the nearest police stations</li>
+                            <li class="mb-2">Attend self-defense workshops</li>
+                            <li>Report suspicious activity immediately</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Community Voices</h2>
+                <p class="text-muted">Hear from women who use our platform</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="testimonial-card p-4 bg-white shadow-sm h-100">
+                        <p>"The safety map helped me avoid a high-risk area in Raipur. I could plan my route home safely after work."</p>
+                        <div class="d-flex align-items-center mt-3">
+                            <img src="images/img1.jpg" alt="User" class="rounded-circle me-3" width="50">
+                            <div>
+                                <h6 class="mb-0">Priya Sharma</h6>
+                                <small class="text-muted">College Student, Raipur</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="testimonial-card p-4 bg-white shadow-sm h-100">
+                        <p>"When I felt unsafe at a bus stop, the emergency alert connected me directly to local police within minutes."</p>
+                        <div class="d-flex align-items-center mt-3">
+                            <img src="images/img2.jpeg" alt="User" class="rounded-circle me-3" width="50">
+                            <div>
+                                <h6 class="mb-0">Anjali Patel</h6>
+                                <small class="text-muted">Working Professional, Bilaspur</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="testimonial-card p-4 bg-white shadow-sm h-100">
+                        <p>"The community feature helped me find other women traveling the same route. Now we commute together safely."</p>
+                        <div class="d-flex align-items-center mt-3">
+                            <img src="images/img3.jpeg" alt="User" class="rounded-circle me-3" width="50">
+                            <div>
+                                <h6 class="mb-0">Meena Yadav</h6>
+                                <small class="text-muted">Nurse, Durg</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container text-center">
+            <h2 class="fw-bold mb-4">Join Our Safety Network Today</h2>
+            <p class="lead mb-4">Together, we can make Chhattisgarh safer for all women</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <a href="/register" class="btn btn-light btn-lg px-4">Register Now</a>
+                <a href="/about" class="btn btn-outline-light btn-lg px-4">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5>Women Safety Platform</h5>
+                    <p>Committed to creating safer communities for women across Chhattisgarh through technology and community engagement.</p>
+                </div>
+                <div class="col-md-2 mb-4 mb-md-0">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="/" class="text-white">Home</a></li>
+                        <li><a href="/report" class="text-white">Report</a></li>
+                        <li><a href="/map" class="text-white">Safety Map</a></li>
+                        <li><a href="/resources" class="text-white">Resources</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4 mb-md-0">
+                    <h5>Support</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="/help" class="text-white">Help Center</a></li>
+                        <li><a href="/contact" class="text-white">Contact Us</a></li>
+                        <li><a href="/faq" class="text-white">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Connect With Us</h5>
+                    <div class="d-flex gap-3 mt-3">
+                        <a href="#" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin-in fa-lg"></i></a>
+                    </div>
+                    <div class="mt-4">
+                        <p>24/7 Helpline: <a href="tel:+911234567890" class="text-white">+91 12345 67890</a></p>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
+            <div class="text-center">
+                <p class="mb-0">© 2025 Women Safety Platform Chhattisgarh. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
